@@ -1,6 +1,6 @@
 # rails 7 sass jumpstart
 
-Epic Ruby On Rails 7 SaaS Jumpstart app with PostgreSQL, Bootstrap 5, Font Awesome 5, Devise, Noticed, Announcements, Rollup, CSS Bundling, JS Bundling, Madmin, Hotwire, Stimulus JS and Action Cable/Cable Ready, Request JS with Redis Caching
+Epic Ruby On Rails 7 SaaS Image sharing app with Strapi CMS/PostgreSQL, Bootstrap 5, Font Awesome 5, Devise, Noticed, Announcements, Rollup, CSS Bundling, JS Bundling, Madmin, Hotwire, Stimulus JS and Action Cable/Cable Ready, Request JS with Redis Caching
 
 # JS & CSS Bundling with Rollup - no webpack/webpacker
 
@@ -65,11 +65,21 @@ $ rails s
 
 $ rails action_text:install (already done here)
 
+(When create new files or migrations run Rubocop to correct and add frozen_string_literal offenses)
+
+#################################################
+
+### Strapi CMS Back End ###
+
+1. Is self contained/hosted & is inside db folder with own subfolders
+2. Uses the same Postgresql database as the Rails App
+3. See its Readme for usage and docs at:
+
+https://strapi.io/resource-center
+
 #################################################
 
 ### Multi Tenancy Support ###
-
-(When create new files or migrations run Rubocop to correct and add frozen_string_literal offenses)
 
 Add domain and subdomain to your tenant account table (Skip if your rails app already did this)
 
