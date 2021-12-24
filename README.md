@@ -71,9 +71,9 @@ $ rails action_text:install (already done here)
 
 ### Strapi CMS Back End ###
 
-1. Is self contained/hosted & is inside db folder with own subfolders
-2. Uses the same Postgresql database as the Rails App
-3. See its Readme for usage and docs at:
+1. Is self contained/hosted & is inside db folder (rails-figurine-cms-db) with own subfolders
+2. Uses the same Postgresql database as the Rails App, & values in .env file
+3. See its Readme for usage and also more docs at:
 
 https://strapi.io/resource-center
 
