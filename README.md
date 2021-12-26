@@ -1,6 +1,8 @@
-# rails 7 sass jumpstart
+# figurine-urban-system
 
-Epic Ruby On Rails 7 SaaS Image sharing app with Strapi CMS/PostgreSQL, Bootstrap 5, Font Awesome 5, Devise, Noticed, Announcements, Rollup, CSS Bundling, JS Bundling, Madmin, Hotwire, Stimulus JS and Action Cable/Cable Ready, Request JS with Redis Caching
+Epic Ruby On Rails 7 SaaS Image sharing app with Strapi CMS/Rails/PostgreSQL ORM-Backend with Redis Caching.
+
+Frontend:Bootstrap 5, Font Awesome 5, Devise, Noticed, Announcements, Rollup, CSS Bundling, JS Bundling, Madmin Admin, Hotwire, Stimulus JS and Action Cable/Cable Ready & Request JS .
 
 # JS & CSS Bundling with Rollup - no webpack/webpacker
 
@@ -14,39 +16,42 @@ Combine with Hotwire and Strada
 
 Style kept minimal so Bootstrap 5 can be swapped out for other CSS or UI if required
 
-* Ruby version
+* Ruby/Rails versions
 
 Ruby 3.0.0
 
 Rails 7.0.0 up
 
-* Setup, first three commands MUST be run
+* Setup, first six steps MUST be done
 
 1. $ bundle install/update (if change any gems)
 2. $ yarn  (engine node v 16.0.0)
-3. $ rails css:install:bootstrap  (dont overwrite application.bootstrap)
+3. $ bin/rails css:install:bootstrap  (dont overwrite application.bootstrap)
 
-4. set db credentials config/database.yml (postgres)
-5. $ rails db:create
-6. $ rails db:migrate
+## IMPORTANT STRAPI - BACKEND folder Set db credentials in rails & backend .env file (postgres) copy .env.example > .env and enter details. ##
 
-7. Is set up to send basic user signup mail with gmail, alter smtp or other mail credentials (.env, application_mailer, devise.rb & development.rb), then test signup confirmation emails by signing up & confirming user email
-copy .env.example > .env and enter details, or adapt to suit yours.
+4. Ensure that the Strapi admin/DB Tables are set up first, in backend folder run "yarn develop" after first running yarn for the node_modules
 
-8. $ rails stimulus_reflex:install (OPTIONAL, extra config needed see link above)
+5. $ bin/rails db:create
+6. $ bin/rails db:migrate:reset  
+7. $ bin/rails db:schema:load  (change strapi admin tables to cascade)
 
-9. $ rails dev:cache (check, should be cached, if not run again)
+8. Is set up to send basic user signup mail with gmail, alter smtp or other Email credentials (.env, application_mailer, devise.rb [noreply] & development.rb), then test signup confirmation emails by signing up & confirming user email
 
-OPTIONAL
-10. $ rails g madmin:install  (if not, have to alter nav)
-11. $ rails g madmin:views  (already there styled for bootstrap overwrite requires restyle)
+9. $ rails stimulus_reflex:install (OPTIONAL, extra config needed see link above)
 
-12. $ rails generate favicon  (put your favicon.png in assets/images, along with favicon.json in config folder)
+10. $ rails dev:cache (check, should be cached, if not run again)
+
+OPTIONAL but best to have.
+11. $ rails g madmin:install  (if not, have to alter nav)
+12. $ rails g madmin:views  (already there styled for bootstrap overwrite requires restyle)
+
+13. $ rails generate favicon  (put your favicon.png in assets/images, along with favicon.json in config folder)
     (see https://realfavicongenerator.net/)  for more info.
     
-13. $ rails g rspec:install  (for testing)
+14. $ rails g rspec:install  (for testing)
 
-14. Run Importmap
+15. Run Importmap
 
 # examples 
 
@@ -71,8 +76,8 @@ $ rails action_text:install (already done here)
 
 ### Strapi CMS Back End ###
 
-1. Is self contained/hosted & is inside db folder (rails-figurine-cms) with own subfolders
-2. Uses the same Postgresql database as the Rails App, & values in .env file
+1. Is self contained/hosted & is in root folder (rails-figurine-cms) with schema screenshots & own subfolders
+2. Uses the same Postgresql database as the Rails App, & values in own .env file
 3. See its Readme for usage and also more docs at:
 
 https://strapi.io/resource-center

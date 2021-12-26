@@ -223,13 +223,13 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
 
   create_table "strapi_database_schema", id: :serial, force: :cascade do |t|
     t.json "schema"
-    t.datetime "time"
+    t.datetime "time", precision: 6
     t.string "hash", limit: 255
   end
 
   create_table "strapi_migrations", id: :serial, force: :cascade do |t|
     t.string "name", limit: 255
-    t.datetime "time"
+    t.datetime "time", precision: 6
   end
 
   create_table "strapi_webhooks", id: :serial, force: :cascade do |t|
@@ -308,6 +308,7 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
     t.datetime "confirmed_at", precision: 6
     t.datetime "confirmation_sent_at", precision: 6
     t.string "unconfirmed_email"
+    t.string "username", default: "", null: false
     t.string "first_name"
     t.string "last_name"
     t.datetime "announcements_last_read_at", precision: 6

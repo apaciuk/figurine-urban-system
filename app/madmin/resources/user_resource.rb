@@ -3,7 +3,7 @@
 class UserResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
-  attribute :username
+  #attribute :username
   attribute :email
   attribute :encrypted_password
   attribute :reset_password_token

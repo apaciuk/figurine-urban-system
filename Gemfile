@@ -16,23 +16,25 @@ gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
+
 # https requests/cookies etc.
 gem 'mechanize'
+
 # Multi Tenant no data leak (if enable extra config needed see Readme)
 # gem 'multi-tenant-support'
 
 # Use JavaScript with ESM import maps, & bundling CSS [https://github.com/rails/importmap-rails]
-gem 'importmap-rails'
-gem 'requestjs-rails' # Always after importmap
 gem 'cssbundling-rails', '~> 1.0'
+gem 'importmap-rails'
 gem 'jsbundling-rails', '~> 1.0'
+gem 'requestjs-rails' # Always after importmap
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem 'stimulus-rails'
 gem 'cable_ready'
+gem 'stimulus-rails'
 
 # Nominal basic CSS framework & Icon fonts, can be swapped out.
 gem 'bootstrap', '5.1.3'
@@ -91,14 +93,10 @@ group :development, :test do
 end
 
 group :development do
+  # ERD, needs graphviz, cmd - bundle exec rake erd
+gem 'rails-erd'
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+gem 'web-console'
 end
 
 group :test do
@@ -107,5 +105,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-
