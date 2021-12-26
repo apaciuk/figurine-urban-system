@@ -57,7 +57,7 @@ gem 'omniauth-twitter', '~> 1.4'
 # Auth, Logins, Tokens
 gem 'devise', git: 'https://github.com/heartcombo/devise', branch: 'main'
 gem 'devise_masquerade', '~> 1.3'
-# Auth Roles w Devise
+# Auth Roles/Policies w Devise
 gem 'pundit', '~> 2.1'
 # Processes
 gem 'sidekiq', '~> 6.2'

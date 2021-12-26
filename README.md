@@ -22,22 +22,25 @@ Ruby 3.0.0
 
 Rails 7.0.0 up
 
-* Setup, first six steps MUST be done
+* Setup, first seven steps MUST be done & 15
 
 1. $ bundle install/update (if change any gems)
 2. $ yarn  (engine node v 16.0.0)
 3. $ bin/rails css:install:bootstrap  (dont overwrite application.bootstrap)
 
+4. $ bin/rails db:create
+
 ## IMPORTANT STRAPI - BACKEND folder Set db credentials in rails & backend .env file (postgres) copy .env.example > .env and enter details. ##
 
-4. Ensure that the Strapi admin/DB Tables are set up first, in backend folder run "yarn develop" after first running yarn for the node_modules
+5. Ensure that Strapi & the Strapi admin/DB Tables are set up first, in backend folder run "yarn develop" after first running yarn for the node_modules
 
-5. $ bin/rails db:create
-6. $ bin/rails db:migrate:reset  
+
+6. $ bin/rails db:migrate 
 7. $ bin/rails db:schema:load  (change strapi admin tables to cascade)
 
 8. Is set up to send basic user signup mail with gmail, alter smtp or other Email credentials (.env, application_mailer, devise.rb [noreply] & development.rb), then test signup confirmation emails by signing up & confirming user email
-
+   Use same admin user as Strapi and set true in rails console with User.first.update :admin => true
+   
 9. $ rails stimulus_reflex:install (OPTIONAL, extra config needed see link above)
 
 10. $ rails dev:cache (check, should be cached, if not run again)
@@ -60,7 +63,7 @@ OPTIONAL but best to have.
  ./bin/importmap json (show maps)
 
 
-# Woot woot  Start server!
+# Woot Woot  Start server!
 
 $ rails s
 
