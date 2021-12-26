@@ -1,0 +1,19 @@
+{
+id: 1
+firstname: "Paul Anthony"
+lastname: "McGowan"
+username: null
+email: "anthonymcgowan1@gmail.com"
+password: "$2a$10$9x/PugSS0cDkm3Vm/hIza.SIwFGweWpHPcUOHer9qjzfKY9JGnpzC"
+reset_password_token: null
+registration_token: null
+is_active: true
+blocked: false
+prefered_language: null
+created_at: "2021-12-26 18:39:30.557"
+updated_at: "2021-12-26 18:39:30.557"
+created_by_id: null
+updated_by_id: null
+hint_created_by_id_firstname: null
+hint_updated_by_id_firstname: null
+}
