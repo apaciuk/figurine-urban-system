@@ -1,0 +1,24 @@
+{
+id: "1"
+email: "anthonymcgowan1@gmail.com"
+encrypted_password: "$2a$12$TUcwXmWZzpVoGo5JMD7FRuIxSLTsSUf2SIcPBsEjF1RloECS5e1XO"
+reset_password_token: null
+reset_password_sent_at: null
+remember_created_at: null
+sign_in_count: 0
+current_sign_in_at: null
+last_sign_in_at: null
+current_sign_in_ip: null
+last_sign_in_ip: null
+confirmation_token: "xxt3cbjR2xZmjzstxSJj"
+confirmed_at: "2021-12-26 18:54:48.245816"
+confirmation_sent_at: "2021-12-26 18:53:56.814879"
+unconfirmed_email: null
+username: ""
+first_name: "Paul"
+last_name: "Anthony McGowan"
+announcements_last_read_at: null
+admin: true
+created_at: "2021-12-26 18:53:56.814749"
+updated_at: "2021-12-26 18:56:50.778033"
+}
