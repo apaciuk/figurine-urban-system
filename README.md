@@ -32,8 +32,13 @@ Rails 7.0.0 up
 
 ## IMPORTANT STRAPI - BACKEND folder Set db credentials in rails & backend .env file (postgres) copy .env.example > .env and enter details. ##
 
-5. Ensure that Strapi & the Strapi admin/DB Tables are set up first, in backend folder run "yarn develop" after first running yarn for the node_modules
+5. Ensure that Strapi & the Strapi admin/DB Tables are set up first, in backend folder run "yarn build (or develop)" after first running yarn for the node_modules, set an admin user same as Rails admin below.
 
+## STRAPI ##############################
+  $ yarn
+  $ yarn build - Build Strapi admin panel.
+  $ yarn develop - run with watch files
+## STRAPI ##############################
 
 6. $ bin/rails db:migrate 
 7. $ bin/rails db:schema:load  (change strapi admin tables to cascade)
