@@ -3,7 +3,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  authenticate :user, lambda { |u| u.admin? } do
+  draw :madmin
+  authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
 
     namespace :madmin do
@@ -20,10 +21,10 @@ Rails.application.routes.draw do
       resources :services
       resources :users
       resources :announcements
-      root to: 'dashboard#show'
+      # root to: 'dashboard#show'
     end
   end
-  #get "/browse" => "browse#browse", as: :browse
+  # get "/browse" => "browse#browse", as: :browse
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

@@ -2,6 +2,12 @@
 
 # Below are the routes for madmin
 namespace :madmin do
+  namespace :action_text do
+    resources :encrypted_rich_texts
+  end
+  namespace :action_text do
+    resources :rich_texts
+  end
   resources :services
   resources :announcements
   resources :notifications
