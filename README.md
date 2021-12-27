@@ -85,6 +85,8 @@ $ rails action_text:install (already done here)
 
 Paul Anthony McGowan - xhostcom@gmail.com
 
+https://www.patreon.com/xhostcom
+
 #################################################
 
 ### Strapi CMS Back End ###
