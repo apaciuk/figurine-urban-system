@@ -69,7 +69,7 @@ OPTIONAL but best to have.
  ./bin/importmap json (show maps)
 
 
-# Woot Woot  Start server!
+## Start server! ##
 
 $ rails s
 
@@ -81,11 +81,15 @@ $ rails action_text:install (already done here)
 
 (When create new files or migrations run Rubocop to correct and add frozen_string_literal offenses)
 
+## Author
+
+Paul Anthony McGowan - xhostcom@gmail.com
+
 #################################################
 
 ### Strapi CMS Back End ###
 
-1. Is self contained/hosted & is in root folder (rails-figurine-cms) with schema screenshots & own subfolders
+1. Is self contained/hosted & is in root folder (backend) with schema screenshots & own subfolders
 2. Uses the same Postgresql database as the Rails App, & values in own .env file
 3. See its Readme for usage and also more docs at:
 
