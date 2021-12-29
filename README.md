@@ -10,57 +10,59 @@ Frontend:Bootstrap 5, Font Awesome 5, Devise, Noticed, Announcements, Rollup, CS
 
 * https://docs.stimulusreflex.com/
 
-Combine with Hotwire and Strada
+# Combine with Hotwire and Strada #
 
 * https://hotwired.dev/
 
 Style kept minimal so Bootstrap 5 can be swapped out for other CSS or UI if required
 
-* Ruby/Rails versions
+* Ruby/Rails/Node/Postgres
 
-Ruby 3.0.0
+- [Ruby](https://www.ruby-lang.org/en/) 3.0.0
+- [Rails](https://rubyonrails.org/) 7.0.0 up
+- [NodeJS] (https://nodejs.org/es/blog/release/v16.0.0/) 16.0.0
+- [PostgreSQL](https://www.postgresql.org/docs/14/index.html) 14.00
 
-Rails 7.0.0 up
+## SET UP, ALL steps to be done except 8 (optional) ##
 
-* Setup, first seven steps MUST be done & 15
+After first set email & db credentials in .env files (cp .env.example to .env and fill in with your env details in both rails root and backend folders)
 
 1. $ bundle install/update (if change any gems)
 2. $ yarn  (engine node v 16.0.0)
 3. $ bin/rails css:install:bootstrap  (dont overwrite application.bootstrap)
 
-4. $ bin/rails db:create
+## Create DB from rails root folder
 
-## IMPORTANT STRAPI - BACKEND folder Set db credentials in rails & backend .env file (postgres) copy .env.example > .env and enter details. ##
+4. $ bin/rails db:create && cd backend
 
-5. Ensure that Strapi & the Strapi admin/DB Tables are set up first, in backend folder run "yarn build (or develop)" after first running yarn for the node_modules, set an admin user same as Rails admin below once.
-(yarn start afterwards)
+## IMPORTANT STRAPI - IN BACKEND folder Set db credentials in rails & backend .env file (postgres) copy .env.example > .env and enter details. ##
 
-## STRAPI ##############################
-  $ yarn
-  $ yarn build - Build Strapi admin panel.
-  $ yarn develop - run with watch files
-## STRAPI ##############################
+Ensure that Strapi & the Strapi admin/DB Tables are set up first, in backend folder terminal run "yarn develop" after first running yarn for the node_modules, set an admin user same as Rails admin below once.
+(yarn start afterwards), cmd below.
 
-6. $ bin/rails db:migrate 
-7. $ bin/rails db:schema:load  (change strapi admin tables to cascade)
+5. $ yarn && yarn develop - Install deps, set up admin & admin user, content types (in admin Gui), run and watch files
 
-8. Is set up to send basic user signup mail with gmail, alter smtp or other Email credentials (.env, application_mailer, devise.rb [noreply] & development.rb), then test signup confirmation emails by signing up & confirming user email
+## Open new terminal in rails root
+
+6. $ bin/rails db:schema:load  (will change strapi admin tables in db to cascade)
+
+7. Is set up to send basic user signup mail with gmail, alter smtp or other Email credentials (.env, application_mailer, devise.rb [noreply] & development.rb), then test signup confirmation emails by signing up & confirming user email
    Use same admin user as Strapi and set true in rails console with User.first.update :admin => true
    
-9. $ rails stimulus_reflex:install (OPTIONAL, extra config needed see link above)
+8. $ rails stimulus_reflex:install (OPTIONAL, extra config needed see link above)
 
-10. $ rails dev:cache (check, should be cached, if not run again)
+9. $ rails dev:cache (check, should be cached, if not run again)
 
 OPTIONAL but best to have.
-11. $ rails g madmin:install  (if not, have to alter nav)
-12. $ rails g madmin:views  (already there styled for bootstrap overwrite requires restyle)
+10. $ rails g madmin:install  (if not, have to alter nav)
+11. $ rails g madmin:views  (already there styled for bootstrap overwrite requires restyle)
 
-13. $ rails generate favicon  (put your favicon.png in assets/images, along with favicon.json in config folder)
+12. $ rails generate favicon  (put your favicon.png in assets/images, along with favicon.json in config folder)
     (see https://realfavicongenerator.net/)  for more info.
     
-14. $ rails g rspec:install  (for testing)
+13. $ rails g rspec:install  (for testing)
 
-15. Run Importmap
+14. Run Importmap
 
 # examples 
 
@@ -68,14 +70,13 @@ OPTIONAL but best to have.
  ./bin/importmap pin bootstrap  (pin bootstrap & popper, ie import)
  ./bin/importmap json (show maps)
 
-
 ## Start server! ##
 
 $ rails s
 
 (For other cmds see  related docs/links)
 
-# example
+# Example other command
 
 $ rails action_text:install (already done here)
 

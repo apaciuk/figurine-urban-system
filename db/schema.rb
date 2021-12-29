@@ -223,13 +223,13 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
 
   create_table "strapi_database_schema", id: :serial, force: :cascade do |t|
     t.json "schema"
-    t.datetime "time", precision: 6
+    t.datetime "time"
     t.string "hash", limit: 255
   end
 
   create_table "strapi_migrations", id: :serial, force: :cascade do |t|
     t.string "name", limit: 255
-    t.datetime "time", precision: 6
+    t.datetime "time"
   end
 
   create_table "strapi_webhooks", id: :serial, force: :cascade do |t|
