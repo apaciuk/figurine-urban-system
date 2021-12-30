@@ -53,64 +53,6 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "admin_permissions", id: :serial, force: :cascade do |t|
-    t.string "action", limit: 255
-    t.string "subject", limit: 255
-    t.jsonb "properties"
-    t.jsonb "conditions"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "admin_permissions_created_by_id_fk"
-    t.index ["updated_by_id"], name: "admin_permissions_updated_by_id_fk"
-  end
-
-  create_table "admin_permissions_role_links", id: false, force: :cascade do |t|
-    t.integer "permission_id"
-    t.integer "role_id"
-    t.index ["permission_id"], name: "admin_permissions_role_links_fk"
-    t.index ["role_id"], name: "admin_permissions_role_links_inv_fk"
-  end
-
-  create_table "admin_roles", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "code", limit: 255
-    t.string "description", limit: 255
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "admin_roles_created_by_id_fk"
-    t.index ["updated_by_id"], name: "admin_roles_updated_by_id_fk"
-  end
-
-  create_table "admin_users", id: :serial, force: :cascade do |t|
-    t.string "firstname", limit: 255
-    t.string "lastname", limit: 255
-    t.string "username", limit: 255
-    t.string "email", limit: 255
-    t.string "password", limit: 255
-    t.string "reset_password_token", limit: 255
-    t.string "registration_token", limit: 255
-    t.boolean "is_active"
-    t.boolean "blocked"
-    t.string "prefered_language", limit: 255
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "admin_users_created_by_id_fk"
-    t.index ["updated_by_id"], name: "admin_users_updated_by_id_fk"
-  end
-
-  create_table "admin_users_roles_links", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-    t.index ["role_id"], name: "admin_users_roles_links_inv_fk"
-    t.index ["user_id"], name: "admin_users_roles_links_fk"
-  end
-
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at", precision: 6
     t.string "announcement_type"
@@ -118,38 +60,6 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "files", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "alternative_text", limit: 255
-    t.string "caption", limit: 255
-    t.integer "width"
-    t.integer "height"
-    t.jsonb "formats"
-    t.string "hash", limit: 255
-    t.string "ext", limit: 255
-    t.string "mime", limit: 255
-    t.decimal "size", precision: 10, scale: 2
-    t.string "url", limit: 255
-    t.string "preview_url", limit: 255
-    t.string "provider", limit: 255
-    t.jsonb "provider_metadata"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "files_created_by_id_fk"
-    t.index ["updated_by_id"], name: "files_updated_by_id_fk"
-  end
-
-  create_table "files_related_morphs", id: false, force: :cascade do |t|
-    t.integer "file_id"
-    t.integer "related_id"
-    t.string "related_type", limit: 255
-    t.string "field", limit: 255
-    t.integer "order"
-    t.index ["file_id"], name: "files_related_morphs_fk"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -161,17 +71,6 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
-  end
-
-  create_table "i18n_locale", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "code", limit: 255
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "i18n_locale_created_by_id_fk"
-    t.index ["updated_by_id"], name: "i18n_locale_updated_by_id_fk"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -198,99 +97,6 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_services_on_user_id"
-  end
-
-  create_table "strapi_api_tokens", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "description", limit: 255
-    t.string "type", limit: 255
-    t.string "access_key", limit: 255
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "strapi_api_tokens_created_by_id_fk"
-    t.index ["updated_by_id"], name: "strapi_api_tokens_updated_by_id_fk"
-  end
-
-  create_table "strapi_core_store_settings", id: :serial, force: :cascade do |t|
-    t.string "key", limit: 255
-    t.text "value"
-    t.string "type", limit: 255
-    t.string "environment", limit: 255
-    t.string "tag", limit: 255
-  end
-
-  create_table "strapi_database_schema", id: :serial, force: :cascade do |t|
-    t.json "schema"
-    t.datetime "time"
-    t.string "hash", limit: 255
-  end
-
-  create_table "strapi_migrations", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.datetime "time"
-  end
-
-  create_table "strapi_webhooks", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.text "url"
-    t.jsonb "headers"
-    t.jsonb "events"
-    t.boolean "enabled"
-  end
-
-  create_table "up_permissions", id: :serial, force: :cascade do |t|
-    t.string "action", limit: 255
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "up_permissions_created_by_id_fk"
-    t.index ["updated_by_id"], name: "up_permissions_updated_by_id_fk"
-  end
-
-  create_table "up_permissions_role_links", id: false, force: :cascade do |t|
-    t.integer "permission_id"
-    t.integer "role_id"
-    t.index ["permission_id"], name: "up_permissions_role_links_fk"
-    t.index ["role_id"], name: "up_permissions_role_links_inv_fk"
-  end
-
-  create_table "up_roles", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "description", limit: 255
-    t.string "type", limit: 255
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "up_roles_created_by_id_fk"
-    t.index ["updated_by_id"], name: "up_roles_updated_by_id_fk"
-  end
-
-  create_table "up_users", id: :serial, force: :cascade do |t|
-    t.string "username", limit: 255
-    t.string "email", limit: 255
-    t.string "provider", limit: 255
-    t.string "password", limit: 255
-    t.string "reset_password_token", limit: 255
-    t.string "confirmation_token", limit: 255
-    t.boolean "confirmed"
-    t.boolean "blocked"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
-    t.integer "created_by_id"
-    t.integer "updated_by_id"
-    t.index ["created_by_id"], name: "up_users_created_by_id_fk"
-    t.index ["updated_by_id"], name: "up_users_updated_by_id_fk"
-  end
-
-  create_table "up_users_role_links", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-    t.index ["role_id"], name: "up_users_role_links_inv_fk"
-    t.index ["user_id"], name: "up_users_role_links_fk"
   end
 
   create_table "users", force: :cascade do |t|
@@ -322,32 +128,5 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "admin_permissions", "admin_users", column: "created_by_id", name: "admin_permissions_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_permissions", "admin_users", column: "updated_by_id", name: "admin_permissions_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_permissions_role_links", "admin_permissions", column: "permission_id", name: "admin_permissions_role_links_fk", on_delete: :cascade
-  add_foreign_key "admin_permissions_role_links", "admin_roles", column: "role_id", name: "admin_permissions_role_links_inv_fk", on_delete: :cascade
-  add_foreign_key "admin_roles", "admin_users", column: "created_by_id", name: "admin_roles_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_roles", "admin_users", column: "updated_by_id", name: "admin_roles_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_users", "admin_users", column: "created_by_id", name: "admin_users_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_users", "admin_users", column: "updated_by_id", name: "admin_users_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_users_roles_links", "admin_roles", column: "role_id", name: "admin_users_roles_links_inv_fk", on_delete: :cascade
-  add_foreign_key "admin_users_roles_links", "admin_users", column: "user_id", name: "admin_users_roles_links_fk", on_delete: :cascade
-  add_foreign_key "files", "admin_users", column: "created_by_id", name: "files_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "files", "admin_users", column: "updated_by_id", name: "files_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "files_related_morphs", "files", name: "files_related_morphs_fk", on_delete: :cascade
-  add_foreign_key "i18n_locale", "admin_users", column: "created_by_id", name: "i18n_locale_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "i18n_locale", "admin_users", column: "updated_by_id", name: "i18n_locale_updated_by_id_fk", on_delete: :nullify
   add_foreign_key "services", "users"
-  add_foreign_key "strapi_api_tokens", "admin_users", column: "created_by_id", name: "strapi_api_tokens_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "strapi_api_tokens", "admin_users", column: "updated_by_id", name: "strapi_api_tokens_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_permissions", "admin_users", column: "created_by_id", name: "up_permissions_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_permissions", "admin_users", column: "updated_by_id", name: "up_permissions_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_permissions_role_links", "up_permissions", column: "permission_id", name: "up_permissions_role_links_fk", on_delete: :cascade
-  add_foreign_key "up_permissions_role_links", "up_roles", column: "role_id", name: "up_permissions_role_links_inv_fk", on_delete: :cascade
-  add_foreign_key "up_roles", "admin_users", column: "created_by_id", name: "up_roles_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_roles", "admin_users", column: "updated_by_id", name: "up_roles_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_users", "admin_users", column: "created_by_id", name: "up_users_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_users", "admin_users", column: "updated_by_id", name: "up_users_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_users_role_links", "up_roles", column: "role_id", name: "up_users_role_links_inv_fk", on_delete: :cascade
-  add_foreign_key "up_users_role_links", "up_users", column: "user_id", name: "up_users_role_links_fk", on_delete: :cascade
 end
