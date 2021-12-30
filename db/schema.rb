@@ -322,32 +322,32 @@ ActiveRecord::Schema.define(version: 2021_12_21_011534) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "admin_permissions", "admin_users", column: "created_by_id", name: "admin_permissions_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_permissions", "admin_users", column: "updated_by_id", name: "admin_permissions_updated_by_id_fk", on_delete: :nullify
+  add_foreign_key "admin_permissions", "admin_users", column: "created_by_id", name: "admin_permissions_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "admin_permissions", "admin_users", column: "updated_by_id", name: "admin_permissions_updated_by_id_fk", on_delete: :cascade
   add_foreign_key "admin_permissions_role_links", "admin_permissions", column: "permission_id", name: "admin_permissions_role_links_fk", on_delete: :cascade
   add_foreign_key "admin_permissions_role_links", "admin_roles", column: "role_id", name: "admin_permissions_role_links_inv_fk", on_delete: :cascade
-  add_foreign_key "admin_roles", "admin_users", column: "created_by_id", name: "admin_roles_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_roles", "admin_users", column: "updated_by_id", name: "admin_roles_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_users", "admin_users", column: "created_by_id", name: "admin_users_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "admin_users", "admin_users", column: "updated_by_id", name: "admin_users_updated_by_id_fk", on_delete: :nullify
+  add_foreign_key "admin_roles", "admin_users", column: "created_by_id", name: "admin_roles_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "admin_roles", "admin_users", column: "updated_by_id", name: "admin_roles_updated_by_id_fk", on_delete: :cascade
+  add_foreign_key "admin_users", "admin_users", column: "created_by_id", name: "admin_users_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "admin_users", "admin_users", column: "updated_by_id", name: "admin_users_updated_by_id_fk", on_delete: :cascade
   add_foreign_key "admin_users_roles_links", "admin_roles", column: "role_id", name: "admin_users_roles_links_inv_fk", on_delete: :cascade
   add_foreign_key "admin_users_roles_links", "admin_users", column: "user_id", name: "admin_users_roles_links_fk", on_delete: :cascade
-  add_foreign_key "files", "admin_users", column: "created_by_id", name: "files_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "files", "admin_users", column: "updated_by_id", name: "files_updated_by_id_fk", on_delete: :nullify
+  add_foreign_key "files", "admin_users", column: "created_by_id", name: "files_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "files", "admin_users", column: "updated_by_id", name: "files_updated_by_id_fk", on_delete: :cascade
   add_foreign_key "files_related_morphs", "files", name: "files_related_morphs_fk", on_delete: :cascade
-  add_foreign_key "i18n_locale", "admin_users", column: "created_by_id", name: "i18n_locale_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "i18n_locale", "admin_users", column: "updated_by_id", name: "i18n_locale_updated_by_id_fk", on_delete: :nullify
+  add_foreign_key "i18n_locale", "admin_users", column: "created_by_id", name: "i18n_locale_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "i18n_locale", "admin_users", column: "updated_by_id", name: "i18n_locale_updated_by_id_fk", on_delete: :cascade
   add_foreign_key "services", "users"
-  add_foreign_key "strapi_api_tokens", "admin_users", column: "created_by_id", name: "strapi_api_tokens_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "strapi_api_tokens", "admin_users", column: "updated_by_id", name: "strapi_api_tokens_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_permissions", "admin_users", column: "created_by_id", name: "up_permissions_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_permissions", "admin_users", column: "updated_by_id", name: "up_permissions_updated_by_id_fk", on_delete: :nullify
+  add_foreign_key "strapi_api_tokens", "admin_users", column: "created_by_id", name: "strapi_api_tokens_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "strapi_api_tokens", "admin_users", column: "updated_by_id", name: "strapi_api_tokens_updated_by_id_fk", on_delete: :cascade
+  add_foreign_key "up_permissions", "admin_users", column: "created_by_id", name: "up_permissions_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "up_permissions", "admin_users", column: "updated_by_id", name: "up_permissions_updated_by_id_fk", on_delete: :cascade
   add_foreign_key "up_permissions_role_links", "up_permissions", column: "permission_id", name: "up_permissions_role_links_fk", on_delete: :cascade
   add_foreign_key "up_permissions_role_links", "up_roles", column: "role_id", name: "up_permissions_role_links_inv_fk", on_delete: :cascade
-  add_foreign_key "up_roles", "admin_users", column: "created_by_id", name: "up_roles_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_roles", "admin_users", column: "updated_by_id", name: "up_roles_updated_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_users", "admin_users", column: "created_by_id", name: "up_users_created_by_id_fk", on_delete: :nullify
-  add_foreign_key "up_users", "admin_users", column: "updated_by_id", name: "up_users_updated_by_id_fk", on_delete: :nullify
+  add_foreign_key "up_roles", "admin_users", column: "created_by_id", name: "up_roles_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "up_roles", "admin_users", column: "updated_by_id", name: "up_roles_updated_by_id_fk", on_delete: :cascade
+  add_foreign_key "up_users", "admin_users", column: "created_by_id", name: "up_users_created_by_id_fk", on_delete: :cascade
+  add_foreign_key "up_users", "admin_users", column: "updated_by_id", name: "up_users_updated_by_id_fk", on_delete: :cascade
   add_foreign_key "up_users_role_links", "up_roles", column: "role_id", name: "up_users_role_links_inv_fk", on_delete: :cascade
   add_foreign_key "up_users_role_links", "up_users", column: "user_id", name: "up_users_role_links_fk", on_delete: :cascade
 end
