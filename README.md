@@ -2,7 +2,7 @@
 
 Epic Ruby On Rails 7 SaaS Image sharing app with Strapi CMS/Rails/PostgreSQL ORM-Backend with Redis Caching.
 
-Frontend:Bootstrap 5, Font Awesome 5, Devise, Noticed, Announcements, Rollup, CSS Bundling, JS Bundling, Madmin Admin, Hotwire, Stimulus JS and Action Cable/Cable Ready & Request JS .
+Frontend:Bootstrap 5, Font Awesome 5, Devise, Noticed, Announcements, Rollup, CSS Bundling, JS Bundling, Madmin Admin, GLightbox, Hotwire, Stimulus JS and Action Cable/Cable Ready & Request JS .
 
 # JS & CSS Bundling with Rollup - no webpack/webpacker
 
